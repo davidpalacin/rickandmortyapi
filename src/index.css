@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  font-family: Arial;
+  margin: 0;
+  padding: 0;
+}
