@@ -2,21 +2,25 @@ import React from "react"; //Podemos dejar este import pero hoy día no es neces
 import { useState, useEffect } from "react";
 import { RickMortyService } from "../../services/RickMortyService";
 import { CharacterCard } from "../CharacterCard/CharacterCard";
+import PaginationComponent from "../../components/PaginationComponent/PaginationComponent";
+
 import "./CharactersList.scss";
 
 export function CharactersList() {
   const [characters, setCharacter] = useState([]);
+  const [page, setPage] = useState(1);
+  const [pages, setPages] = useState(1);
 
   useEffect(() => {
-    getAllCharacters();
-  }, []);
+    getAllCharacters(page);
+  }, [page]);
 
   //functions
-  const getAllCharacters = async () => {
+  const getAllCharacters = async (page) => {
     try {
-      const res = await RickMortyService.getAllCharacters(1);
+      const res = await RickMortyService.getAllCharacters(page);
       setCharacter(res.data.results);
-      console.log(characters)
+      setPages(res.data.info.pages);
     } catch (error) {
       console.log(error.message || error);
     }
@@ -24,11 +28,16 @@ export function CharactersList() {
 
   return (
     <>
-      <h1 className="CharactersListTitle">Rick & Morty</h1>
+      <PaginationComponent setPage={setPage} actualPage={page} totalPages={pages}/>
+
+      <h1 className="text-center">Rick & Morty</h1>
+
       <div className="CharactersList">
         {characters.length > 0 &&
           characters.map((char) => <CharacterCard key={char.id} char={char} />)}
       </div>
+
+      <PaginationComponent setPage={setPage} actualPage={page} />
     </>
   );
 }

@@ -21,23 +21,19 @@ import {About} from './containers/About/About';
 function App() {
 
   return (
-
     <div className="App">
-
       <BrowserRouter>
-
-        <Header/>
+        <Header />
 
         <Routes>
           <Route path="/" element={<Navigate to="/characters" />} />
           <Route path="/characters" element={<CharactersList />} />
           <Route path="/characters/:id" element={<CharacterDetail />} />
-          <Route path='/about' element={ <About /> } />
+          <Route path="/about" element={<About />} />
         </Routes>
+
       </BrowserRouter>
-
     </div>
-
   );
   
 }
