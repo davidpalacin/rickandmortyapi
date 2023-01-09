@@ -8,4 +8,11 @@ body,
   font-family: Arial;
   margin: 0;
   padding: 0;
+  background-color: #F2D272;
+}
+
+body {
+  background-image: url("../src/assets/pickle_rick.webp");
+  background-repeat: repeat;
+  background-size: 60px;
 }

@@ -4,10 +4,10 @@ import logo from '../../assets/react.svg';
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-nav">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
-          <img src={logo} alt="logo react" />
+          <img src={logo} alt="logo" />
         </a>
         <button
           className="navbar-toggler"

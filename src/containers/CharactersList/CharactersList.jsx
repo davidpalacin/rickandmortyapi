@@ -28,16 +28,22 @@ export function CharactersList() {
 
   return (
     <>
-      <PaginationComponent setPage={setPage} actualPage={page} totalPages={pages}/>
-
-      <h1 className="text-center">Rick & Morty</h1>
-
+      <PaginationComponent
+        setPage={setPage}
+        actualPage={page}
+        totalPages={pages}
+      />
+      
       <div className="CharactersList">
         {characters.length > 0 &&
           characters.map((char) => <CharacterCard key={char.id} char={char} />)}
       </div>
 
-      <PaginationComponent setPage={setPage} actualPage={page} />
+      <PaginationComponent
+        setPage={setPage}
+        actualPage={page}
+        totalPages={pages}
+      />
     </>
   );
 }

@@ -10,7 +10,16 @@ export default function PaginationComponent({setPage, actualPage, totalPages}) {
         <li
           className="page-item"
           role="button"
-          onClick={() => setPage(() => actualPage>1 ? actualPage-- : actualPage)}
+          onClick={() => setPage(() => 1)}
+        >
+          <a className="page-link">First</a>
+        </li>
+        <li
+          className="page-item"
+          role="button"
+          onClick={() =>
+            setPage(() => (actualPage > 1 ? actualPage-- : actualPage))
+          }
         >
           <a className="page-link">Previous</a>
         </li>
@@ -22,9 +31,18 @@ export default function PaginationComponent({setPage, actualPage, totalPages}) {
         <li
           className="page-item"
           role="button"
-          onClick={() => setPage(() => actualPage<totalPages ? actualPage++ : actualPage)}
+          onClick={() =>
+            setPage(() => (actualPage < totalPages ? actualPage++ : actualPage))
+          }
         >
           <a className="page-link">Next</a>
+        </li>
+        <li
+          className="page-item"
+          role="button"
+          onClick={() => setPage(() => totalPages)}
+        >
+          <a className="page-link">Last</a>
         </li>
       </ul>
     </nav>
